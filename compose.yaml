@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  sqlite3:
+    image: 'nouchka/sqlite3:latest'
+    container_name: 'java-sqlite'
+    environment:
+      - 'SQLITE_USER=sa'
+      - 'SQLITE_HOST_AUTH_METHOD=trust'
+      - 'SQLITE_DB=pet'
+
+  app:
+    image: 5aeed0a7d218
+    container_name: 'java-app'
+    ports:
+      - 8080:8080
